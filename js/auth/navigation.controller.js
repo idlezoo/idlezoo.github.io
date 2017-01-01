@@ -9,7 +9,7 @@ function($rootScope, $http, $state) {
 	};
 
 	var authenticate = function(callback) {
-		$http.get('https://idlezoo.herokuapp.com/user').then(function(response) {
+		$http.get('https://idlezoo.herokuapp.com/user', {withCredentials: true}).then(function(response) {
 			if (response.data.name) {
 				$rootScope.authenticated = true;
 			} else {
@@ -30,7 +30,8 @@ function($rootScope, $http, $state) {
 		$http.post('https://idlezoo.herokuapp.com/login', $.param(self.credentials), {
 			headers : {
 				"content-type" : "application/x-www-form-urlencoded"
-			}
+			},
+ 			withCredentials: true
 		}).then(function() {
 			authenticate(function() {
 				if ($rootScope.authenticated) {
@@ -57,7 +58,8 @@ function($rootScope, $http, $state) {
 		$http.post('https://idlezoo.herokuapp.com/createuser', $.param(self.credentials), {
 			headers : {
 				"content-type" : "application/x-www-form-urlencoded"
-			}
+			},
+ 			withCredentials: true
 		}).then(function() {
 			self.login();
 		}, function() {
@@ -69,7 +71,7 @@ function($rootScope, $http, $state) {
 	};
 
 	self.logout = function() {
-		$http.post('https://idlezoo.herokuapp.com/logout', {}).finally(function() {
+		$http.post('https://idlezoo.herokuapp.com/logout', {withCredentials: true}).finally(function() {
 			$rootScope.authenticated = false;
 			$state.go('app');
 		});
