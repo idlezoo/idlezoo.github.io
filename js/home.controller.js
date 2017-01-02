@@ -1,8 +1,8 @@
-idlezoo.controller('home', function($rootScope, $scope, $interval, $http) {
+idlezoo.controller('home', function($rootScope, $scope, $interval, $http, apiUrl) {
 	if(!$rootScope.authenticated){
 		return;
 	}
-	var socket = new SockJS("https://idlezoo.herokuapp.com/game/ws");
+	var socket = new SockJS(apiUrl + "/game/ws");
 	
 	
 	var self = this;

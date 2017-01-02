@@ -3,6 +3,7 @@ var idlezoo = angular.module('idlezoo', [
     'ngNumeraljs'
 ]);
 
+idlezoo.constant('apiUrl', 'https://idlezoo.herokuapp.com');
 
 
 

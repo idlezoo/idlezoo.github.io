@@ -1,27 +1,27 @@
-idlezoo.controller('topincome', function($rootScope, $http, $state) {
+idlezoo.controller('topincome', function($rootScope, $http, $state, apiUrl) {
 	var self = this;
-	$http.get('https://idlezoo.herokuapp.com/top/income').then(function(response) {
+	$http.get(apiUrl + '/top/income').then(function(response) {
 		self.top = response.data;
 	});
 });
 
-idlezoo.controller('toptime', function($rootScope, $http, $state) {
+idlezoo.controller('toptime', function($rootScope, $http, $state, apiUrl) {
 	var self = this;
-	$http.get('https://idlezoo.herokuapp.com/top/championTime').then(function(response) {
+	$http.get(apiUrl + '/top/championTime').then(function(response) {
 		self.top = response.data;
 	});
 });
 
-idlezoo.controller('topwins', function($rootScope, $http, $state) {
+idlezoo.controller('topwins', function($rootScope, $http, $state, apiUrl) {
 	var self = this;
-	$http.get('https://idlezoo.herokuapp.com/top/wins').then(function(response) {
+	$http.get(apiUrl + '/top/wins').then(function(response) {
 		self.top = response.data;
 	});
 });
 
-idlezoo.controller('toplosses', function($rootScope, $http, $state) {
+idlezoo.controller('toplosses', function($rootScope, $http, $state, apiUrl) {
 	var self = this;
-	$http.get('https://idlezoo.herokuapp.com/top/losses').then(function(response) {
+	$http.get(apiUrl + '/top/losses').then(function(response) {
 		self.top = response.data;
 	});
 });
