@@ -23,7 +23,6 @@
     height: 95px;
     width: 90px;
     display: inline-block;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background: no-repeat 50% 50%;
 }
